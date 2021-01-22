@@ -22,6 +22,10 @@ const verwerkDoorsnijding = (entries, observer) => {
     });
 }
 
+let observer = new IntersectionObserver(verwerkDoorsnijding, opties);
+
+observer.observe(secties[1]);
+
 const maakActief = (elem) => {
     verwijderActief();
     elem.classList.add('actief');
