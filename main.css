@@ -44,3 +44,19 @@ nav a:hover {
     color: darkcyan;
     background: lightblue;
 }
+
+section {
+    text-align: center;
+    padding: 2em;
+    height: 100vh;
+    padding-top: 3em;
+    box-sizing: border-box;
+}
+
+section img {
+    width: 50%;
+}
+
+section:nth-child(even) {
+    background: lightcyan;
+}
