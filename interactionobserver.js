@@ -2,6 +2,7 @@ let links = document.querySelectorAll('nav a');
 let secties = document.querySelectorAll('section');
 
 const opties = {
+    //rootMargin: '-150px',
     treshold: 1
 };
 
@@ -16,15 +17,16 @@ const verwijderActief = () => {
 const verwerkDoorsnijding = (entries, observer) => {
     entries.forEach( entry => {
         if ( entry.isIntersecting ) {
-           let link = zoekBijpassendeLink('#' + entry.target.id);
+           let link = zoekBijpassendeLink('#' + entry.target.parentNode.id);
            maakActief(link);
         }
     });
 }
 
 let observer = new IntersectionObserver(verwerkDoorsnijding, opties);
-
-observer.observe(secties[1]);
+secties.forEach( sectie => {
+    observer.observe(sectie.getElementsByTagName('p')[0]);
+});
 
 const maakActief = (elem) => {
     verwijderActief();
